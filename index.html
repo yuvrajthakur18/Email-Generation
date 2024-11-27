@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Generation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Email Generation</h1>
+        <form id="inputForm" onsubmit="handleSubmit(event)">
+            <label for="leadName">Lead's Name:</label>
+            <input type="text" id="leadName" placeholder="Enter Lead's Name" required>
+
+            <label for="companyName">Company's Name:</label>
+            <input type="text" id="companyName" placeholder="Enter Company's name" required>
+
+            <button type="submit">
+                Generate Email
+            </button>
+        </form>     
+
+        <div>
+            <h2>Generated Email : </h2>
+            <p id="emailOutput"></p>
+
+            <h2>Data Scrapped about the lead : </h2>
+            <pre id="jsonOutput"></pre>
+        </div>
+    </div>
+
+    <!-- Ensure hidden class is applied -->
+    <div id="loaderContainer" class="hidden">
+        <div class="loader"></div>
+        <p style="background-color: #3498db; border: none;">Please wait, this might take a couple of minutes...</p>
+    </div>
+
+    <script>
+        // Ensure loader is hidden after DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loaderContainer');
+            if (!loader.classList.contains('hidden')) {
+                loader.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
