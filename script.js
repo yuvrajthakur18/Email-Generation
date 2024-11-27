@@ -26,7 +26,7 @@ async function handleSubmit(event) {
         // document.getElementById('jsonOutput').textContent = JSON.stringify(api1Data, null, 2);
 
         // Step 2: Call the second API to generate the email using the data from API 1
-        const api2Response = await fetch('http://172.190.96.197:5000/api/emails/generate', {
+        const api2Response = await fetch('/api/emails/generate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

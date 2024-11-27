@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/emails/generate",
+        "destination": "http://172.190.96.197:5000/api/emails/generate"
+      }
+    ]
+  }
+  
