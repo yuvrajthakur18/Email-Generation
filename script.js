@@ -10,7 +10,7 @@ async function handleSubmit(event) {
     loaderContainer.classList.remove('hidden');
 
     try {
-        const api2Response = await fetch('/api/emails/generate', {
+        const api2Response = await fetch('http://172.190.96.197:5000/api/emails/generate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,7 +29,14 @@ async function handleSubmit(event) {
     
         // Display the generated email in the output section
         document.getElementById('emailOutput').textContent = api2Data.email;
-        document.getElementById('jsonOutput').textContent = JSON.stringify(api2Data.lead_profile);
+
+        // Format and display the generated email with proper line breaks
+        const formattedEmail = api2Data.email.replace(/\n/g, '<br>'); // Replace newlines with <br> tags
+        document.getElementById('emailOutput').innerHTML = formattedEmail;
+        
+        // Format the lead profile data with proper indentation
+        const formattedLeadProfile = JSON.stringify(api2Data.lead_profile, null, 4); // Indentation of 4 spaces
+        document.getElementById('jsonOutput').textContent = formattedLeadProfile;
     
     } catch (error) {
         console.error(error);  // Log the error for debugging
