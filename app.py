@@ -1,6 +1,5 @@
 import streamlit as st
 from pymongo import MongoClient
-from bson import ObjectId
 from groq import Groq
 import os
 from dotenv import load_dotenv
